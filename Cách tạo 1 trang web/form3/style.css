@@ -1,0 +1,35 @@
+* {
+    font-family:Arial, Helvetica, sans-serif
+}
+.form-title {
+    color: white;
+    background-color: #ff4c00;
+    text-align: center;
+}
+.form-info {
+    text-align: center;
+    margin-left: -40px;
+}
+.form-name>h3 {
+    margin-right: 10px;
+}
+.form-email>h3 {
+    margin-right: 43px;
+}
+.form-hobbies>h3 {
+    margin-left: 87px;
+}
+
+.form-hobbies>.checkbox1 {
+    margin-left: 195px;
+}
+.form-hobbies>.checkbox2 {
+    margin: 1.4em 29px 1.4em 0;
+}
+
+.btn-Submit {
+    margin-left: 65px;
+}
+.form-name>h3,.form-email>h3,.form-hobbies>h3 {
+    display: inline-block;
+}

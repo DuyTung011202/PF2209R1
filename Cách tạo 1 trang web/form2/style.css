@@ -1,0 +1,35 @@
+.form-register {
+    background-color: #fffda9;
+}
+
+.form-title {
+    color:  Blue;
+    background-color: #D4FDD6;
+}
+.form-name>input {
+   margin-left:5px
+}
+
+.form-birthday>input {
+    margin-left:2px;
+}
+
+.form-gender>input {
+    margin-left:10px;
+}
+
+.form-address>input {
+    margin-left: 25px;
+}
+
+.form-pickClass>select {
+    margin-left: 47px;
+}
+
+.form-email>input {
+    margin-left:33px
+}
+
+.form-btn {
+    margin-left: 92px;
+}
