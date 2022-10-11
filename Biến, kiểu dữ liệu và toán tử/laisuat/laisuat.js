@@ -1,0 +1,5 @@
+let tiengui  =parseFloat(prompt("Nhập vào số tiền vay: "))
+let laisuat = parseFloat(prompt(" số lãi suất: "))
+let year = parseFloat(prompt("Nhập số năm gửi tiền: "))
+let tiennhan = parseFloat(tiengui + year * (tiengui * laisuat))
+console.log("Số tiền được nhận là: " + tiennhan) 
