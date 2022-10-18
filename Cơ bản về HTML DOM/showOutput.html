@@ -7,13 +7,16 @@
     <title>Document</title>
 </head>
 <body id="body">
+    <p id="title"></p>
     <button type="button" id="btn" onclick="showMessage()">ClickMe!</button>
-    <button type="button" id="btn" onclick="showMessage1()">ClickMe!1</button>
-    <button type="button" id="btn" onclick="showMessage2()">ClickMe!2</button>
+    <button type="button" id="btn1" onclick="showMessage1()">ClickMe!1</button>
+    <button type="button" id="btn2" onclick="showMessage2()">ClickMe!2</button>
+    <button type="button" id="btn3" onclick="showMessage3()">ClickMe!3</button>
     <script>
         function showMessage() {
             alert("Xin chào")
         }
+
 
         function showMessage1() {
             console.log("Xin chào")
@@ -21,6 +24,10 @@
 
         function showMessage2() {
             document.write("Xin chào")
+        }
+
+        function showMessage3() {
+           document.getElementById("title").innerHTML = "Xin chào"
         }
     </script>
 </body>
