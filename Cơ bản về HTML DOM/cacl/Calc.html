@@ -29,9 +29,9 @@
                 let num2 = parseFloat(inputNum2.value);
                 let addition = num1 + num2;
                 function showResult() {
-                    document.getElementById("result").innerText = "Result addition: " + addition
+                    document.getElementById("result").innerHTML = "Result additon: " + addition;
                 }
-                showResult(addition);
+                showResult(addition)
             }
     
             function subtraction() {
@@ -65,7 +65,7 @@
                     let num2 = parseFloat(inputNum2.value);
                     let division = num1 / num2;
                     function showResult() {
-                    document.getElementById("result").innerText = "Result addition: " + division
+                    document.getElementById("result").innerText = "Result division: " + division
                 }
                 showResult(division);
                 }
