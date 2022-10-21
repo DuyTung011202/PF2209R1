@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Nhập điểm của bạn</legend>
+            Điểm toán:
+            <input type="number" min="0" max="10" id="DiemToan" style="margin-left: 24px;">
+            <br>
+            <br>
+            Điểm văn:
+            <input type="number" min="0" max="10" id="DiemVan" style="margin-left: 29px;">
+            <br>
+            <br>
+            Điểm anh:
+            <input type="number" min="0" max="10" id="DiemAnh" style="margin-left: 29px;">
+            <br>
+            <br>
+            Điểm khu vực:
+            <select id="KhuVuc">
+                <option value="0.75">KV1</option>
+                <option value="0.5">KV2-NT</option>
+                <option value="0.25">KV2</option>
+                <option value="0">KV3</option>
+            </select>
+            <br>
+            <br>
+            <button type="button" onclick="tinhdiem()">Tính điểm</button>
+            <br>
+            <br>
+            <div id="ketqua" style="color: red;"></div>
+        </fieldset>
+    </form>
+    <script>
+        function tinhdiem(){
+            let toan = parseFloat(document.getElementById("DiemToan").value)
+            let van = parseFloat(document.getElementById("DiemVan").value)
+            let anh = parseFloat(document.getElementById("DiemAnh").value)
+            let diemKhuVuc = parseFloat(document.getElementById("KhuVuc").value)
+            let tongdiem = toan + van + anh + diemKhuVuc
+            document.getElementById("ketqua").innerHTML = `Tổng điểm khối D của bạn là ${tongdiem}`
+        }
+    </script>
+</body>
+</html>
