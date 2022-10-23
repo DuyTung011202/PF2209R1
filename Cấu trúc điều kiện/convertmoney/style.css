@@ -1,0 +1,14 @@
+h3 {
+    display: inline-block;
+    margin-right: 100px;
+    margin-left: 20px  ;
+}
+form input {
+    margin-right: 100px;
+    width: 100px;
+}
+
+form select {
+    width: 140px;
+    margin-right: 100px;
+}
