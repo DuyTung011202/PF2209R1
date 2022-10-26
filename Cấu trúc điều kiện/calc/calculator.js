@@ -8,6 +8,7 @@ function nhanSo(so) {
     document.getElementById("man-hinh").value = current + so;
 }
 
+
 function nhanXoa() {
     soLanNhan = 0;
     toanTuTam = "";
