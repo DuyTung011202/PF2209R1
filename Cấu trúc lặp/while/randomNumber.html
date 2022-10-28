@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="playGame()">Play</button>
+    <script>
+        function playGame() {
+            let inputNumber = parseInt(prompt("Nhập khoảng muốn đoán: "))
+            let randomNumber = Math.floor(Math.random() * (inputNumber+1));
+            let guessNumber = parseInt(prompt("Nhập số bạn đoán: "))
+            for(let i = 0; i < 3; i++) {
+            if (guessNumber === randomNumber) {
+                alert("Chúc mừng, bạn đã đoán đúng")
+
+                break
+            }
+            else if (guessNumber > randomNumber) {
+                    alert("Nhập số bé hơn")
+                    guessNumber = parseInt(prompt("Nhập số bạn đoán: "))                  
+                    
+                }
+            else if (guessNumber < randomNumber) {
+                    alert("Nhập số lớn hơn")
+                    guessNumber = parseInt(prompt("Nhập số bạn đoán: "))
+                }
+                
+            }
+            alert("Bạn đã hết lượt chơi, kết quả: " + randomNumber)
+            
+        }
+            
+    </script>
+</body>
+</html>
