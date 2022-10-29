@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = Number(prompt("Nhập số nguyên dương: "))
+        if (n==1 || n == 2) {
+            document.write("1")
+        } else {
+            let fn2 = 1 
+            let fn1 = 1
+            document.write(fn2 + " " + fn1 + " " )
+            let nextFn
+            for(let i = 3; i <= n; i++) {
+                nextFn = fn1 + fn2
+                fn2 = fn1
+                fn1 = nextFn
+                document.write(nextFn + " ")
+            }
+
+        }
+
+
+    </script>
+</body>
+</html>
