@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Đảo ngược số</h3>
+    <input type="number"  id="inputNumber">
+    <button type="button" onclick="reverse()">Reverse</button>
+    <h3 id="result"></h3>
+    <script>
+        function reverse() {
+            let n = document.getElementById("inputNumber").value;
+            let reverseNumber = 0;
+            let last
+            while(n > 0) {
+                last = n  % 10;
+                reverseNumber = reverseNumber*10 + last;
+                n = Math.floor(n / 10)
+            }
+            document.getElementById("result").innerHTML = "Số đảo ngược là: " + reverseNumber
+        }
+    </script>
+</body>
+</html>
