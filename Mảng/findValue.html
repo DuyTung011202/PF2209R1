@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Tìm giá trị trong mảng</h2>
+    <div>
+        Khởi tạo mảng có:
+        <input type="number" id="inputNumber">
+        phần tử
+        <button type="button" onclick="creatValue()">Creat</button>
+        <br>
+        <br>
+        <div id="result"></div>
+        <br>
+        <br>
+        <br>
+        Cần tìm:
+        <input type="number" id="yourNumber">
+        <button type="button" onclick="findValue()">Find</button>
+        <br>
+        <br>
+        <div id="result1"></div>
+    </div>
+    
+    <script>
+        let arr = []
+        function creatValue() { 
+            document.getElementById("result").innerHTML = ""
+            let soPhanTu = parseInt(document.getElementById("inputNumber").value)
+            for(let i = 0; i < soPhanTu; i++) {
+                arr[i] = Math.floor(Math.random() * 56) 
+            }
+            document.getElementById("result").innerHTML = "[" + arr.join(", ") + "]"
+        }
+
+        function findValue() {
+            let soNhapVao = parseInt(document.getElementById("yourNumber").value)
+            for(let i in arr) {
+                if(arr[i] == soNhapVao) {
+                    document.getElementById("result1").innerHTML = `Có trong mảng`
+                    break
+                } else {
+                    document.getElementById("result1").innerHTML = `Không có trong mảng`                   
+                }
+            }
+        }
+    </script>
+</body>
+</html>
