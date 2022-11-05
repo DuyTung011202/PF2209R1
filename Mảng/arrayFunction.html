@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //Ex1
+        let myColor = ["Red", "Green", "White", "Black"];
+        console.log(myColor.join(", "))
+    //Ex2
+        let inpNum = parseInt(prompt("Nhập vào số bất kỳ"))
+        let strNum = inpNum.toString() 
+        let result = [strNum[0]]  
+        for(let i = 0; i < strNum.length; i++) {
+            if(strNum[i] % 2 == 0 && strNum[i+1] % 2 == 0) {
+                result.push("-", strNum[i+1])
+            } else {
+                result.push(strNum[i+1])
+            }
+        }
+        console.log(result.join(""))
+
+    //Ex3
+        let inpStr = prompt("Nhập chuỗi bất kỳ:")
+        const UPPER = "ABCDFEFGHJKLMNOPQRSTUVWXYZ"
+        const LOWER = "abcdefghijklmnopqrstuvwxyz"
+        let res = []
+        for(let i = 0; i < inpStr.length; i++) {
+            if(UPPER.includes(inpStr[i])    ) {
+                res.push(inpStr[i].toLowerCase())
+            } else if(LOWER.includes(inpStr[i])) {
+                res.push(inpStr[i].toUpperCase())
+            } else {
+                res.push(inpStr[i])
+            }
+        }
+        console.log(res.join(""))
+    </script>
+</body>
+</html>
