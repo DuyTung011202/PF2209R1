@@ -7,39 +7,41 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Giá hoa quả</h1>
-    <input type="text" id="inpFruit">
-    <button type="button" onclick="checkPrice()">Check</button>
-    <br>
-    <br>
-    <b>
-        <div id="price">Price:</div>
-    </b>
+    <form action="">
+        <fieldset>
+            <legend>Tra cứu giá hoa quả</legend>
+            <h1>Giá hoa quả</h1>
+            <input type="text" id="inpFruit">
+            <button type="button" onclick="checkPrice()">Check</button>
+            <br>
+            <br>
+            <b>
+                <div id="price">Price:</div>
+            </b>
+        </fieldset>
+    </form>
     <script>
         function checkPrice() {
             let inputFruit = document.getElementById("inpFruit").value;
             switch(inputFruit) {
                 case "Ổi":
+                case "Dưa hấu":
                     document.getElementById("price").innerHTML = "Price: 20000 VNĐ/kg";
                     break;
-                case "Dưa Hấu":
-                    document.getElementById("price").innerHTML = "Price: 20000 VNĐ/kg"
-                    break;
                 case "Táo":
-                    document.getElementById("price").innerHTML = "Price: 30000 VNĐ/kg"
-                    break
                 case "Xoài":
                     document.getElementById("price").innerHTML = "Price: 30000 VNĐ/kg"
-                    break;
+                    break
                 case "Cam":
-                    document.getElementById("price").innerHTML = "Price: 40000 VNĐ/kg"
-                    break;
                 case "Chôm chôm":
                     document.getElementById("price").innerHTML = "Price: 40000 VNĐ/kg"
-                    break
+                    break;
                 case "Măng cụt":
                     document.getElementById("price").innerHTML = "Price: 50000 VNĐ/kg"
                     break;
+                default:
+                    document.getElementById("price").innerHTML = "Không có giá hợp lệ"
+                break;
 
             }
         }
