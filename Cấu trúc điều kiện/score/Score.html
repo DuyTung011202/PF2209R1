@@ -24,10 +24,10 @@
             <br>
             Điểm khu vực:
             <select id="KhuVuc">
-                <option value="0.75">KV1</option>
-                <option value="0.5">KV2-NT</option>
-                <option value="0.25">KV2</option>
-                <option value="0">KV3</option>
+                <option value="KV1">KV1</option>
+                <option value="KV2-NT">KV2-NT</option>
+                <option value="KV2">KV2</option>
+                <option value="KV3">KV3</option>
             </select>
             <br>
             <br>
@@ -42,7 +42,21 @@
             let toan = parseFloat(document.getElementById("DiemToan").value)
             let van = parseFloat(document.getElementById("DiemVan").value)
             let anh = parseFloat(document.getElementById("DiemAnh").value)
-            let diemKhuVuc = parseFloat(document.getElementById("KhuVuc").value)
+            let diemKhuVuc = document.getElementById("KhuVuc").value
+            switch(diemKhuVuc) {
+                case "KV1":
+                    diemKhuVuc = 0.75
+                    break
+                case "KV2-NT":
+                    diemKhuVuc = 0.5
+                    break
+                case "KV2":
+                    diemKhuVuc = 0.25
+                    break
+                case "KV3":
+                    diemKhuVuc = 0
+                    break
+            }
             let tongdiem = toan + van + anh + diemKhuVuc
             document.getElementById("ketqua").innerHTML = `Tổng điểm khối D của bạn là ${tongdiem}`
         }
