@@ -15,81 +15,122 @@
             <h3>From Currency</h3>
             <h3>To Currency</h3>
             <br>
-            <input type="number" id="inputMoney">
+            <input type="number" id="inputMoney" min="0">
             <select name="fromCurrency" id="frCurrency">
+                <option value="VND">VND</option>
                 <option value="USD">USD</option>
-                <option value="VietNam">VietNam</option>
                 <option value="GBP">GBP</option>
                 <option value="EUR">EUR</option>
             </select>
             <select name="toCurrency" id="toCurrency">
-                <option value="VietNam">VietNam</option>
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
                 <option value="GBP">GBP</option>
                 <option value="EUR">EUR</option>
-                <option value="USD">USD</option>
             </select>
             <button type="button" onclick="convert()">Convert</button>
-            <p id="result">Kết quả:</p>
+            <b>
+                <p id="result">Kết quả:</p>
+            </b>
+                
         </fieldset>
     </form>
     <script>
         function convert() {
-            let inputMoney = parseFloat(document.getElementById("inputMoney").value)
+            let inputMoney = document.getElementById("inputMoney").value
             let frCurrency = document.getElementById("frCurrency").value
             let toCurrency = document.getElementById("toCurrency").value
-            if(frCurrency === "USD" && toCurrency === "VietNam") {
-                let cvr = inputMoney * 24845
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND', minimumFractionDigits: 2 }).format(cvr) 
+            let res = document.getElementById("result")
+            var cvr
+            if(inputMoney == "") {
+                res.innerHTML = "Nhập giá trị tiền tệ"
+            } else {
+            switch(frCurrency) {
+                case "VND":
+                    switch(toCurrency) {                      
+                        case "USD":
+                            cvr = inputMoney / 24855
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('it-IT', {style: 'currency', currency: 'USD',minimumFractionDigits: 8}).format(cvr)
+                            break
+                        case "GBP":
+                            cvr = inputMoney / 28106.82
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('it-IT', {style: 'currency', currency: 'GBP',minimumFractionDigits: 8}).format(cvr) 
+                            break
+                        case "EUR":
+                            cvr = inputMoney / 24434.58
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR',minimumFractionDigits: 8}).format(cvr)                                          
+                            break
+                        default:
+                            res.innerHTML = "Chọn đơn vị cần chuyển đổi"
+                            break
+                        }
+                        break
+                case "USD": 
+                    switch(toCurrency) {
+                        case "VND":
+                            var cvr = inputMoney * 24855
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND', minimumFractionDigits: 2 }).format(cvr) 
+                            break
+                        case "GBP":
+                            cvr = inputMoney / 1.13
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('it-IT', {style: 'currency', currency: 'GBP',minimumFractionDigits: 8}).format(cvr) 
+                            break
+                        case "EUR":
+                            cvr = inputMoney / 0.98
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR',minimumFractionDigits: 8}).format(cvr)                                          
+                            break
+                        default:
+                            res.innerHTML = "Chọn đơn vị cần chuyển đổi"
+                            break
+                        } 
+                        break
+                case "GBP":
+                    switch(toCurrency) {
+                        case "VND":
+                            cvr = inputMoney * 28106.82
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND', minimumFractionDigits: 2 }).format(cvr) 
+                            break
+                        case "USD":
+                            cvr = inputMoney * 1.13
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('it-IT', {style: 'currency', currency: 'USD',minimumFractionDigits: 8}).format(cvr)
+                            break
+                        case "EUR":
+                            cvr = inputMoney / 0.87
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('de-DE', {style: 'currency', currency: 'EUR',minimumFractionDigits: 8}).format(cvr) 
+                            break
+                        default:
+                            res.innerHTML = "Chọn đơn vị cần chuyển đổi"
+                            break
+                        } 
+                        break
+                case "EUR":
+                    switch(toCurrency) {
+                        case "VND":
+                            cvr = inputMoney * 24434.58
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND', minimumFractionDigits: 2 }).format(cvr)
+                            break 
+                        case "USD":
+                            cvr = inputMoney * 0.98
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('it-IT', {style: 'currency', currency: 'USD',minimumFractionDigits: 8}).format(cvr)
+                            break
+                        case "GBP":
+                            cvr = inputMoney * 0.87
+                            res.innerHTML = "Kết quả: " + new Intl.NumberFormat('it-IT', {style: 'currency', currency: 'GBP',minimumFractionDigits: 8}).format(cvr) 
+                            break
+                        default:
+                            res.innerHTML = "Chọn đơn vị cần chuyển đổi"
+                            break
+                        } 
+                        break
+                    }
+
+                }
             }
-            else if(frCurrency === "VietNam" && toCurrency === "USD") {
-                let cvr = inputMoney / 24845
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', {style: 'currency', currency: 'USD',minimumFractionDigits: 8}).format(cvr) 
-            }
-            else if(frCurrency === "GBP" && toCurrency === "VietNam") {
-                let cvr = inputMoney * 28086.01
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND', minimumFractionDigits: 2 }).format(cvr) 
-            }
-            else if(frCurrency === "VietNam" && toCurrency === "GBP") {
-                let cvr = inputMoney / 28086.01
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', {style: 'currency', currency: 'GBP',minimumFractionDigits: 8}).format(cvr) 
-            }
-            else if(frCurrency === "GBP" && toCurrency === "USD") {
-                let cvr = inputMoney * 1.13
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(cvr) 
-            }
-            else if(frCurrency === "USD" && toCurrency === "GBP") {
-                let cvr = inputMoney / 1.13
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'GBP', minimumFractionDigits: 2 }).format(cvr) 
-            }
-            else if(frCurrency === "EUR" && toCurrency === "VietNam") {
-                let cvr = inputMoney * 24491.83 
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND', minimumFractionDigits: 2 }).format(cvr) 
-            }
-            else if(frCurrency === "VietNam" && toCurrency === "EUR") {
-                let cvr = inputMoney / 24491.83
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', {style: 'currency', currency: 'EUR',minimumFractionDigits: 8}).format(cvr) 
-            }
-            else if(frCurrency === "EUR" && toCurrency === "USD") {
-                let cvr = inputMoney * 0.99
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(cvr) 
-            }
-            else if(frCurrency === "USD" && toCurrency === "EUR") {
-                let cvr = inputMoney / 0.99
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2 }).format(cvr) 
-            }
-            else if(frCurrency === "EUR" && toCurrency === "GBP") {
-                let cvr = inputMoney * 0.87
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'GBP', minimumFractionDigits: 2 }).format(cvr) 
-            }
-            else if(frCurrency === "GBP" && toCurrency === "EUR") {
-                let cvr = inputMoney / 0.87
-                document.getElementById("result").innerHTML ="Kết quả: " + new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'GBP', minimumFractionDigits: 2 }).format(cvr) 
-            }
-            else
-            {
-                document.getElementById("result").innerHTML = "Kết quả: Chọn đơn vị cần đổi"
-            }
-            }
+            
+
+       
+
+        
     </script>
 </body>
 </html>
