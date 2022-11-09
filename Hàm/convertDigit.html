@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Chuyển đổi đơn vị</legend>
+            <h2>Chuyển đổi đơn vị meter - foot</h2>
+            <div>
+                Nhập meter:<input type="number" id="inputMeter">
+                <br><br>
+                Nhập foot:<input type="number" id="inputFoot">
+            </div>
+            <br>
+            <button type="button" onclick="meterToFoot()">Meter to foot</button>
+            <button type="button" onclick="footToMeter()">Foot to meter</button>
+            <p id="result"></p>
+        </fieldset>
+    </form>
+    <script>
+        function meterToFoot() {
+            let meter = parseFloat(document.getElementById("inputMeter").value);
+            let foot = 3.279 * meter
+            document.getElementById("result").innerHTML = "Foot: " + foot
+        }
+
+        function footToMeter() {
+            let foot = parseFloat(document.getElementById("inputFoot").value)
+            let meter = 0.305 * foot
+            document.getElementById("result").innerHTML = "Meter: " + meter
+        }
+    </script>
+</body>
+</html>
