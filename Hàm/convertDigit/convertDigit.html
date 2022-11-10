@@ -23,15 +23,15 @@
     </form>
     <script>
       function meterToFoot() {
-        let meter = parseFloat(document.getElementById("inputMeter").value);
-        let foot = 3.279 * meter;
+        let met = parseFloat(document.getElementById("inputMeter").value);
+        let foot = 3.279 * met;
         document.getElementById("result").innerHTML = "Foot: " + foot;
       }
 
       function footToMeter() {
         let foot = parseFloat(document.getElementById("inputFoot").value);
-        let meter = 0.305 * foot;
-        document.getElementById("result").innerHTML = "Meter: " + meter;
+        let met = 0.305 * foot;
+        document.getElementById("result").innerHTML = "Meter: " + met;
       }
     </script>
   </body>
