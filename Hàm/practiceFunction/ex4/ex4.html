@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getArea(r) {
+        let Area = r ** 2 * 3.14;
+        return `Diện tích hình tròn có bán kính ${r} là ${Area}`;
+      }
+      function getPerimeter(r) {
+        let Perimeter = 2 * 3.14 * r;
+        return `Chu vi hình tròn có bán kính ${r} là ${Perimeter}`;
+      }
+      console.log(getArea(4));
+      console.log(getPerimeter(4));
+    </script>
+  </body>
+</html>
