@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let str = prompt("Nhập chuỗi bất kỳ");
+      function checkPalindrome(str) {
+        let len = str.length;
+        for (let i = 0; i < len / 2; i++) {
+          if (str[i] !== str[len - 1 - i]) {
+            return "Không là chuỗi palindrome";
+          }
+        }
+        return "Là chuỗi palindrome";
+      }
+      let value = checkPalindrome(str);
+      alert(value);
+    </script>
+  </body>
+</html>
