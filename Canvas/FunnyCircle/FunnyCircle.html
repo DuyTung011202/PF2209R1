@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="1500px"
+      height="770px"
+      style="border: 1px solid #d3d3d3"
+    ></canvas>
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const c = canvas.getContext("2d");
+
+      function getRandom() {
+        return Math.floor(Math.random() * 255);
+      }
+
+      function getColor() {
+        let red = getRandom();
+        let green = getRandom();
+        let blue = getRandom();
+        return "rgb(" + red + "," + green + "," + blue + ")";
+      }
+
+      function defCircle() {
+        this.color = getColor();
+        this.x = Math.random() * window.innerWidth;
+        this.radius = Math.random() * 20;
+        this.y = Math.random() * window.innerHeight;
+        this.speed = {
+          x: Math.random() * 5 - Math.random() * 5,
+          y: Math.random() * 5 - Math.random() * 5,
+        };
+      }
+      defCircle.prototype.draw = function () {
+        c.beginPath();
+        c.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        c.fillStyle = this.color;
+        c.fill();
+        c.closePath();
+      };
+      defCircle.prototype.update = function () {
+        this.x += this.speed.x;
+        this.y += this.speed.y;
+        this.draw();
+      };
+
+      let arr = [];
+
+      function pushArr() {
+        arr.push(new defCircle());
+      }
+
+      function move(i) {
+        i.update();
+      }
+
+      function animate() {
+        c.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < arr.length; i++) {
+          move(arr[i]);
+        }
+        pushArr();
+      }
+      setInterval(animate, 10);
+    </script>
+  </body>
+</html>
