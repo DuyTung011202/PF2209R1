@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      width="1000"
+      height="700"
+      style="border: 3px solid #000"
+    ></canvas>
+
+    <script>
+      let c = document.getElementById("canvas").getContext("2d");
+      let y = 10;
+      function drawCar() {
+        c.beginPath();
+        c.fillStyle = "red";
+        c.fillRect(10, y, 30, 30);
+      }
+
+      function moveUp() {
+        c.clearRect(10, y, 30, 30);
+        if (y > 0) {
+          y--;
+        }
+        drawCar();
+      }
+      function moveDown() {
+        c.clearRect(10, y, 30, 30);
+        if (y + 30 < 700) {
+          y++;
+        }
+        drawCar();
+      }
+
+      setInterval(moveDown, 1);
+      //   setInterval(moveUp, 1);
+    </script>
+  </body>
+</html>
