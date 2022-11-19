@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="result"></div>
+    <script>
+      class Temperature {
+        constructor(tempC) {
+          this.tempC = tempC;
+        }
+        getTempC() {
+          return this.tempC;
+        }
+        getTempF() {
+          return 1.8 * this.tempC + 32;
+        }
+        getTempK() {
+          return this.tempC + 273.15;
+        }
+        displayTemp() {
+          let res = document.getElementById("result");
+          res.innerHTML = `${
+            this.tempC
+          } độ C bằng ${this.getTempF()} độ F và bằng ${this.getTempK()} độ K `;
+        }
+      }
+
+      let temp1 = new Temperature(25);
+      temp1.displayTemp();
+    </script>
+  </body>
+</html>
