@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="500"
+      height="500"
+      style="border: 1px solid #000"
+    ></canvas>
+    <div id="result"></div>
+    <script>
+      class Rectangle {
+        constructor(x, y, width, height, color) {
+          this.x = x;
+          this.y = y;
+          this.width = width;
+          this.height = height;
+          this.color = color;
+        }
+        getX() {
+          return this.x;
+        }
+        getY() {
+          return this.y;
+        }
+        setX(x) {
+          this.x = x;
+        }
+        setY(y) {
+          this.y = y;
+        }
+        getWidth() {
+          return this.width;
+        }
+        getHeight() {
+          return this.height;
+        }
+        setWidth(width) {
+          this.width = width;
+        }
+        setHeight(height) {
+          this.height = height;
+        }
+        getColor() {
+          return this.color;
+        }
+        setColor(color) {
+          this.color = color;
+        }
+        getArea() {
+          return this.width * this.height;
+        }
+        getPerimeter() {
+          return (this.height + this.width) * 2;
+        }
+        draw() {
+          let c = document.getElementById("myCanvas").getContext("2d");
+          c.beginPath();
+          c.rect(this.x, this.y, this.width, this.height);
+          c.strokeStyle = this.color;
+          c.lineWidth = "4";
+          c.stroke();
+        }
+        displayAP() {
+          let res = document.getElementById("result");
+          res.innerHTML += `Chu vi hình chữ nhật có chiều dài ${
+            this.width
+          }, chiều rộng ${this.height} và có màu ${
+            this.color
+          } là ${this.getPerimeter()} <br>`;
+          res.innerHTML += `Diện tích hình chữ nhật có chiều dài ${
+            this.width
+          } chiều rộng ${this.height} và có màu ${
+            this.color
+          } là ${this.getArea()} <br><br>`;
+        }
+      }
+
+      let rec1 = new Rectangle(10, 10, 50, 40, "red");
+      rec1.draw();
+      rec1.displayAP();
+
+      let rec2 = new Rectangle();
+      rec2.setX(30);
+      rec2.setY(40);
+      rec2.setWidth(30);
+      rec2.setHeight(20);
+      rec2.setColor("blue");
+      rec2.draw();
+      rec2.displayAP();
+    </script>
+  </body>
+</html>
