@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class SwitchButton {
+        constructor() {}
+
+        connectoToLamp(lamp) {
+          if (lamp) {
+            document.write(`<h2> Đã kết nối với đèn <br> </h2> `);
+          } else {
+            document.write(`Chưa kết nối với đèn <br> `);
+          }
+        }
+        switchOff(lamp) {
+          if (lamp.status == true) {
+            document.write(`Tắt đèn <br>`);
+          } else {
+            document.write(`Đèn đã được tắt, hãy bật đèn <br>`);
+          }
+        }
+        switchOn(lamp) {
+          if (lamp.status == false) {
+            document.write(`Bật đèn <br>`);
+          } else {
+            document.write(`Đèn đã được bật, hãy tắt đèn <br>`);
+          }
+        }
+      }
+      class ElectricLamp {
+        constructor(status) {
+          this.status = status;
+        }
+        turnOff() {
+          document.write(` Đèn tắt <br>`);
+          this.status = false;
+        }
+
+        turnOn() {
+          document.write(` Đèn sáng <br>`);
+          this.status = true;
+        }
+      }
+
+      let lamp = new ElectricLamp();
+      let swit = new SwitchButton();
+      swit.connectoToLamp(lamp);
+      for (let i = 0; i < 10; i++) {
+        lamp.turnOff();
+        swit.switchOn(lamp);
+        lamp.turnOn();
+        swit.switchOff(lamp);
+        document.write(`<br>`);
+      }
+      lamp.turnOff();
+      swit.switchOff(lamp);
+    </script>
+  </body>
+</html>
