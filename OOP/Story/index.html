@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Apple {
+        constructor(weight = 10) {
+          this.weight = weight;
+        }
+        getWeight() {
+          return this.weight;
+        }
+        decreaseWeight() {
+          if (this.weight > 0) {
+            this.weight--;
+          }
+        }
+        isEmpty() {
+          if (this.weight == 0) {
+            return true;
+          }
+        }
+      }
+
+      class Human {
+        constructor(name, gender, weight) {
+          this.name = name;
+          this.gender = gender;
+          this.weight = weight;
+        }
+        getName() {
+          return this.name;
+        }
+        setName(name) {
+          this.name = name;
+        }
+        getWeight() {
+          return this.weight;
+        }
+        setWeight(weight) {
+          this.weight = weight;
+        }
+        isMale() {
+          if (this.gender == "male") {
+            return true;
+          }
+        }
+        getGender() {
+          if (this.isMale()) {
+            return `Adam`;
+          } else {
+            return `Eva`;
+          }
+        }
+        checkApple(apple) {
+          if (apple.isEmpty()) {
+            document.write(`Đã ăn hết táo <br>`);
+            return 0;
+          } else {
+            return apple.getWeight();
+          }
+        }
+
+        eat(apple) {
+          this.weight += 1;
+          apple.decreaseWeight();
+          if (this.isMale()) {
+            document.write(`Adam ăn 1 miếng táo <br>`);
+          } else {
+            document.write(`Eva ăn 1 miếng táo <br>`);
+          }
+          document.write(
+            `Sau khi ăn 1 miếng táo cân nặng của ${this.getGender()} la: ${this.getWeight()} <br>`
+          );
+
+          document.write(`Số táo còn lại là: ${this.checkApple(apple)} <br>`);
+        }
+        say() {
+          if (this.isMale()) {
+            document.write(`Adam nói: Eva ăn đi <br><br>`);
+          } else {
+            document.write(`Eva nói: Adam ăn đi  <br><br>`);
+          }
+        }
+      }
+
+      let apple = new Apple(10);
+      let Adam = new Human("Adam", "male", 50);
+      let Eva = new Human("Eva", "female", 45);
+
+      for (let i = 0; i < 4; i++) {
+        Adam.eat(apple);
+        Adam.say();
+        Eva.eat(apple);
+        Eva.say();
+      }
+
+      Adam.eat(apple);
+      Adam.say(apple);
+      Eva.eat(apple);
+    </script>
+  </body>
+</html>
