@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Animals {
+        constructor(name, weight, speed) {
+          this.name = name;
+          this.weight = weight;
+          this.speed = speed;
+        }
+      }
+
+      class Rat extends Animals {
+        constructor(name, weight, speed, status) {
+          super(name, weight, speed);
+          this.status = status;
+        }
+
+        checkStatus() {
+          if (this.status == true) {
+            document.write(`Còn sống <br>`);
+            return true;
+          } else {
+            document.write(`Đã chết <br>`);
+          }
+        }
+        say() {
+          return `chít, chít`;
+        }
+      }
+
+      class Cat extends Animals {
+        constructor(name, weight, speed) {
+          super(name, weight, speed);
+        }
+
+        say() {
+          return `meo meo`;
+        }
+
+        catchMouse(rat) {
+          if (this.speed > rat.speed) {
+            return true;
+          }
+        }
+        eat(rat) {
+          if (this.catchMouse(rat)) {
+            document.write(`Đã bắt được 1 con chuột <br>`);
+            if (rat.checkStatus()) {
+              document.write(`Ăn thịt <br>`);
+              let catWeight = this.weight + rat.weight;
+              document.write(
+                `Cân nặng của mèo sau khi ăn là ${catWeight} <br><br>`
+              );
+            } else {
+              document.write(`Không ăn thịt <br><br>`);
+            }
+          } else {
+            document.write(`Chưa bắt được chuột <br><br>`);
+          }
+        }
+      }
+
+      let rat1 = new Rat("Rat1", 5, 45, true);
+      let rat2 = new Rat("Rat2", 7, 40, false);
+      let rat3 = new Rat("Rat3", 6, 60, true);
+      let rat4 = new Rat("Rat4", 7, 80, true);
+      let cat = new Cat("Cat", 15, 50);
+      rat1.say();
+      cat.say();
+
+      cat.eat(rat1);
+      cat.eat(rat2);
+      cat.eat(rat3);
+      cat.eat(rat4);
+    </script>
+  </body>
+</html>
