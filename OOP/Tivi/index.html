@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TV</title>
+  </head>
+  <body>
+    <script>
+      class Television {
+        constructor(tvProgram, remoteCode, volume, status) {
+          this.tvProgram = tvProgram;
+          this.remoteCode = remoteCode;
+          this.volume = volume;
+          this.status = status;
+        }
+
+        isOn() {
+          return this.status == true;
+        }
+
+        checkIsOn() {
+          if (this.isOn()) {
+            console.log("TV is on");
+          } else {
+            console.log("TV is off");
+          }
+        }
+
+        turn() {
+          if (this.isOn()) {
+            console.log("Turn off the tv");
+            this.status = false;
+          } else {
+            console.log("Turn on the tv");
+            this.status = true;
+          }
+        }
+
+        increaseVol(number) {
+          if (this.isOn()) {
+            number = Number(number);
+            this.volume += number;
+            console.log("Âm lượng: " + this.volume);
+          } else {
+            console.log("TV đang tắt !");
+          }
+        }
+        decreaseVol(number) {
+          if (this.isOn()) {
+            number = Number(number);
+            this.volume -= number;
+            console.log("Âm lượng: " + this.volume);
+          } else {
+            console.log("TV đang tắt !");
+          }
+        }
+
+        adjustTVProgram(number) {
+          if (this.isOn()) {
+            number = Number(number);
+            this.tvProgram = number;
+            console.log("TV chuyển sang kênh " + this.tvProgram);
+          } else {
+            console.log("TV đang tắt !");
+          }
+        }
+      }
+
+      class Remote {
+        constructor(remoteCode) {
+          this.remoteCode = remoteCode;
+        }
+        increaseVolume(tv, number) {
+          if (tv.remoteCode === this.remoteCode) {
+            tv.increaseVol(number);
+          }
+        }
+        decreaseVolume(tv, number) {
+          if (tv.remoteCode === this.remoteCode) {
+            tv.decreaseVol(number);
+          }
+        }
+        turnTVProgram(tv, number) {
+          if (this.remoteCode === tv.remoteCode) {
+            tv.adjustTVProgram(number);
+          }
+        }
+        turnOnOff(tv) {
+          if (this.remoteCode === tv.remoteCode) {
+            tv.turn();
+          }
+        }
+      }
+
+      let sony = new Television(1, 10112, 20, false);
+
+      let sonyRemote = new Remote(10112);
+      sonyRemote.turnOnOff(sony);
+      sonyRemote.turnTVProgram(sony, 3);
+      sonyRemote.turnTVProgram(sony, 7);
+      sonyRemote.increaseVolume(sony, 2);
+      sonyRemote.decreaseVolume(sony, 5);
+      sonyRemote.turnOnOff(sony);
+    </script>
+  </body>
+</html>
